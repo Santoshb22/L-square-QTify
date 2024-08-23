@@ -3,13 +3,13 @@ import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 import styles from "./Navbar.module.css";
-import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 function Navbar({ searchData }) {
-  const navigate = useNavigate()
   return (
     <nav className={styles.navbar}>
-      <Logo onClick = {() => {navigate("/")}}/>
+      <Link to={"/"} className={styles.logo}>
+      <Logo/>
+      </Link>
       <Search
         placeholder="Search a song of your choice"
         searchData={searchData}
