@@ -9,6 +9,7 @@
     background-color: var(--color-black);
     border: none;
     cursor: pointer;
+    outline: none;
     padding: 10px 16px 10px 16px;
     border-radius: 12px;
     border: 1px 0px 0px 0px;
