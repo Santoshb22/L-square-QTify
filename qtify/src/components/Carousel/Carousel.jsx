@@ -42,7 +42,6 @@ const Carousel = ({ albumData }) => {
             <SwiperSlide key={item.id}><Card albumData={item} /></SwiperSlide>
           ))
         }
-        {/* Custom navigation buttons */}
         <CustomNavigationButtons />
       </Swiper>
     </div>

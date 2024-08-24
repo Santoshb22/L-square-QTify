@@ -7,8 +7,8 @@ import Carousel from "../Carousel/Carousel";
 const Section = () => {
     const [topAlbums, setTopAlbums] = useState([]);
     const [newAlbums, setNewAlbums] = useState([]);
-    const [carouselToggleTopAlbum, setCarouselToggleTopAlbum] = useState("Collapse");
-    const [carouselToggleNewAlbum, setCarouselToggleNewAlbum] = useState("Collapse")
+    const [carouselToggleTopAlbum, setCarouselToggleTopAlbum] = useState("Show All");
+    const [carouselToggleNewAlbum, setCarouselToggleNewAlbum] = useState("Show All")
     const fetchTopAlbums = async () => {
         try {
             const response = await axios.get("https://qtify-backend-labs.crio.do/albums/top");
@@ -29,7 +29,7 @@ const Section = () => {
 
     const handleCarouselToggle = () => {
         if(carouselToggleTopAlbum === "Collapse") {
-            setCarouselToggleTopAlbum("Show all");
+            setCarouselToggleTopAlbum("Show All");
         } else {
             setCarouselToggleTopAlbum("Collapse");
         }
@@ -37,7 +37,7 @@ const Section = () => {
 
     const handleCarouselToggleTopAlbum = () => {
         if(carouselToggleNewAlbum === "Collapse") {
-            setCarouselToggleNewAlbum("Show all");
+            setCarouselToggleNewAlbum("ShowAall");
         } else {
             setCarouselToggleNewAlbum("Collapse");
         }
@@ -57,7 +57,7 @@ const Section = () => {
             <div className={styles.topCardsSection}>
             <div className={styles.cardsHeader}>
                 <p className={styles.title}>Top Albums</p>
-                <button className={styles.collapseButton} onClick={handleCarouselToggle}>{carouselToggleTopAlbum}</button>
+                <button className={styles.carouselToggleButton} onClick={handleCarouselToggle}>{carouselToggleTopAlbum}</button>
             </div>
 
             {
@@ -78,7 +78,7 @@ const Section = () => {
             <div className={styles.bottomCardsSection}> 
             <div className={styles.cardsHeader}>
                 <p className={styles.title}>New Albums</p>
-                <button className={styles.collapseButton} onClick={handleCarouselToggleTopAlbum}>{carouselToggleNewAlbum}</button>
+                <button className={styles.carouselToggleButton} onClick={handleCarouselToggleTopAlbum}>{carouselToggleNewAlbum}</button>
             </div>
 
             {
