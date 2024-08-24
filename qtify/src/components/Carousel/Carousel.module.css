@@ -1,0 +1,32 @@
+.carousel {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .customPrev,
+  .customNext {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: visible;
+    padding: 8px;
+  }
+  
+  .customPrev {
+    left: -8px;
+  }
+  
+  .customNext {
+    right: -8px;
+  }
+  
+  .mySwiper {
+    position: relative;
+    padding-left: 10px;
+  }
+
+  
