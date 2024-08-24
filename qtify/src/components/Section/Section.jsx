@@ -4,28 +4,35 @@ import Card from "../Card/Card";
 import axios from "axios";
 
 const Section = () => {
-    const [cardsData, setCardsData] = useState([]);
+    const [topAlbums, setTopAlbums] = useState([]);
+    const [newAlbums, setNewAlbums] = useState([]);
 
-    const fetchCardsData = async () => {
-        console.log("Fetching data...");
+    const fetchTopAlbums = async () => {
         try {
             const response = await axios.get("https://qtify-backend-labs.crio.do/albums/top");
-            console.log("API response received:", response.data);
-            setCardsData(response.data); 
+            setTopAlbums(response.data);
         } catch (error) {
-            console.error("Error fetching data:", error);
+            console.error("Error fetching top albums:", error);
         }
     }
 
-
-    useEffect(() => {
-        fetchCardsData();
-    }, []);
-
-    if (!cardsData) {
-        return <p>Loading...</p>;
+    const fetchNewAlbums = async () => {
+        try {
+            const response = await axios.get("https://qtify-backend-labs.crio.do/albums/new");
+            setNewAlbums(response.data);
+        } catch (error) {
+            console.error("Error fetching new albums:", error);
+        }
     }
 
+    useEffect(() => {
+        fetchTopAlbums();
+        fetchNewAlbums();
+    }, []);
+
+    if (!topAlbums || !newAlbums) {
+        return <p>Loading...</p>;
+    }
 
     return (
         <div className={styles.cardSection}>
@@ -35,7 +42,18 @@ const Section = () => {
             </div>
 
             <div className={styles.cardsGrid}>
-                {cardsData.map(item => (
+                {topAlbums.map(item => (
+                    <Card key={item.id} albumData={item} />
+                ))}
+            </div>
+
+            <div className={styles.cardsHeader}>
+                <p className={styles.title}>New Albums</p>
+                <button className={styles.collapseButton}>Collapse</button>
+            </div>
+
+            <div className={styles.cardsGrid}>
+                {newAlbums.map(item => (
                     <Card key={item.id} albumData={item} />
                 ))}
             </div>
@@ -43,4 +61,5 @@ const Section = () => {
     );
 }
 
-export default Section;
+
+export default Section
