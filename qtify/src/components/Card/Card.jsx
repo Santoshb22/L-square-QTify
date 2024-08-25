@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "./Card.module.css"
 import Chip from '@mui/material/Chip';
 const Card = ({albumData}) => {
+
   return (
     <div className={styles.cardContainer}>
         <div className={styles.topSection}>
@@ -9,9 +10,14 @@ const Card = ({albumData}) => {
               <img src={albumData.image} alt="song img" />  
             </div>
             <div className={styles.chipContainer}>
-                <Chip className={styles.followChip}
-                 label="100 Follows"
-                />
+            <Chip 
+              className={styles.followChip}
+              label={
+                albumData.follows 
+                  ? `${albumData.follows} follows` 
+                  : `${albumData.likes} likes`
+              }
+            />
             </div>
         </div>
 

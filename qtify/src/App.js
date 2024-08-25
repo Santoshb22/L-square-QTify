@@ -1,15 +1,16 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
-import Hero from './components/Hero/Hero'
-import Section from './components/Section/Section'
+import { Route, Routes } from 'react-router-dom'
+import Home from './components/Home/Home'
 
 const App = () => {
  
   return (
     <div className='app'>
       <Navbar/>
-      <Hero/>
-      <Section/>
+      <Routes>
+        <Route path='/' element = {<Home/>}/>
+      </Routes>
     </div>
   )
 }

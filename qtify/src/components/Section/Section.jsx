@@ -3,99 +3,84 @@ import styles from "./Section.module.css";
 import Card from "../Card/Card";
 import axios from "axios";
 import Carousel from "../Carousel/Carousel";
+import { Tab, Tabs } from "@mui/material";
 
-const Section = () => {
-    const [topAlbums, setTopAlbums] = useState([]);
-    const [newAlbums, setNewAlbums] = useState([]);
-    const [carouselToggleTopAlbum, setCarouselToggleTopAlbum] = useState("Show All");
-    const [carouselToggleNewAlbum, setCarouselToggleNewAlbum] = useState("Show All")
-    const fetchTopAlbums = async () => {
-        try {
-            const response = await axios.get("https://qtify-backend-labs.crio.do/albums/top");
-            setTopAlbums(response.data);
-        } catch (error) {
-            console.error("Error fetching top albums:", error);
-        }
-    }
+const Section = ({sectionTitle, fetchUrl, toggleButton =true, tabs}) => {
+    const [data, setData] = useState([]);
+    const [carouselToggle, setCarouselToggle] = useState("Show All");
+    const [value, setValue] = useState("All")
+    const [filteredData, setFilteredData] = useState([]);
 
-    const fetchNewAlbums = async () => {
+    const fetchAlbums = async () => {
         try {
-            const response = await axios.get("https://qtify-backend-labs.crio.do/albums/new");
-            setNewAlbums(response.data);
+            const response = await axios.get(fetchUrl);
+            setData(response.data);
         } catch (error) {
-            console.error("Error fetching new albums:", error);
+            console.error(`Error fetching ${sectionTitle.toLowerCase()}:`, error);
         }
-    }
+    };
 
     const handleCarouselToggle = () => {
-        if(carouselToggleTopAlbum === "Collapse") {
-            setCarouselToggleTopAlbum("Show All");
-        } else {
-            setCarouselToggleTopAlbum("Collapse");
-        }
-    }
-
-    const handleCarouselToggleTopAlbum = () => {
-        if(carouselToggleNewAlbum === "Collapse") {
-            setCarouselToggleNewAlbum("ShowAall");
-        } else {
-            setCarouselToggleNewAlbum("Collapse");
-        }
-    }
+        setCarouselToggle(prevState => (prevState === "Collapse" ? "Show All" : "Collapse"));
+    };
 
     useEffect(() => {
-        fetchTopAlbums();
-        fetchNewAlbums();
-    }, []);
+        fetchAlbums();
+    }, [fetchUrl]);
 
-    if (!topAlbums || !newAlbums) {
+    useEffect(() => {
+        if(value === "All") {
+            setFilteredData(data);
+        } else {
+            const filtered = data.filter((item) => item.genre.key === value)
+            setFilteredData(filtered)
+        }
+    }, [value, data])
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+      };
+
+    if (!data) {
         return <p>Loading...</p>;
     }
 
     return (
         <div className={styles.cardSection}>
-            <div className={styles.topCardsSection}>
             <div className={styles.cardsHeader}>
-                <p className={styles.title}>Top Albums</p>
-                <button className={styles.carouselToggleButton} onClick={handleCarouselToggle}>{carouselToggleTopAlbum}</button>
+                <p className={styles.title}>{sectionTitle}</p>
+                {
+                    toggleButton === true && <button className={styles.carouselToggleButton} onClick={handleCarouselToggle}>{carouselToggle}</button>
+                }
             </div>
 
             {
-            carouselToggleTopAlbum === "Collapse"? (
+           toggleButton && carouselToggle === "Collapse"? (
             <div className={styles.cardsGrid}>
-                {topAlbums.map(item => (
+                {data.map(item => (
                     <Card key={item.id} albumData={item} />
                 ))}
             </div>
                 ) : (
                     <div>
-                        <Carousel albumData = {topAlbums}/>
+                        {
+                            tabs && sectionTitle === "Songs" && (                        <Tabs
+                                value={value}
+                                onChange={handleChange}
+                                classes={{ root: styles.tabsRoot, indicator: styles.tabIndicator }}
+                            >
+                                <Tab className={styles.tab} value="All" label="All" />
+                                {tabs.map((tab, i) => (
+                                    <Tab key={i} className={styles.tab} value={tab.key} label={tab.key} />
+                                ))}
+                            </Tabs>)
+                        }
+
+                        <Carousel albumData = {sectionTitle === "Songs"? filteredData : data}/>
                     </div>
                 )
             }
             </div>
-
-            <div className={styles.bottomCardsSection}> 
-            <div className={styles.cardsHeader}>
-                <p className={styles.title}>New Albums</p>
-                <button className={styles.carouselToggleButton} onClick={handleCarouselToggleTopAlbum}>{carouselToggleNewAlbum}</button>
-            </div>
-
-            {
-                carouselToggleNewAlbum === "Collapse"? (
-                    <div className={styles.cardsGrid}>
-                {newAlbums.map(item => (
-                    <Card key={item.id} albumData={item} />
-                ))}
-            </div>
-                ) :(
-                    <div>
-                        <Carousel albumData={newAlbums}/>
-                    </div>
-                )
-            }
-            </div>
-        </div>
     );
 }
 

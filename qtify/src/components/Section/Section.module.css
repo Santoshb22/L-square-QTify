@@ -41,3 +41,26 @@
 .topCardsSection {
     margin-bottom: 40px;
 }
+
+
+.tabsRoot {
+    color: var(--color-white); /* Default text color */
+    margin-bottom: 28px !important;
+  }
+  
+  .tab {
+    color:var(--color-white) !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    font-weight:600 !important; 
+    font-family: 'Poppins' !important;
+ }
+  
+  .tabIndicator {
+    background-color: var(--color-primary) !important; /* Green underline */
+    border-radius: 2px !important;
+  }
+  
+  .tabSelected {
+    color:var(--color-white); /* Ensure selected tab text color */
+  }

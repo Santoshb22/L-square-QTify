@@ -23,7 +23,8 @@
 .chipContainer {
     height: 23px;
     margin-top: 2px;
-    padding: 0PX 8PX ;
+    padding: 0PX 8PX;
+    color: var(--color-white) !important;
 }
 
 
