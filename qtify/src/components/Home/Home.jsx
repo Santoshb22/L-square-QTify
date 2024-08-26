@@ -3,6 +3,7 @@ import Hero from '../Hero/Hero'
 import Section from '../Section/Section'
 import axios from 'axios';
 import styles from "./Home.module.css";
+import Accordian from '../Accordian/Accordian';
 
 const Home = () => {
 
@@ -45,6 +46,10 @@ const Home = () => {
         tabs = {tabs}
         />
         <hr className={styles.lineBreak}/>
+
+        <div className={styles.accordian}>
+          <Accordian/>
+        </div>
     </div>
   )
 }

@@ -1,44 +1,85 @@
 .search {
-    padding: 14px 20px;
-    height: 100%;
-    border-radius: 8px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border: 1px solid var(--color-black);
-    width: 502px;
-    font-family: Lato;
-    font-weight: 400;
-    font-size: 16px;
+  padding: 0.875rem 1.25rem;
+  height: 100%;
+  border-radius: 0.5rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 0.0625rem solid var(--color-black);
+  width: 31.375rem;
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  height: 3rem;
+}
+
+.searchButton {
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.875rem 1.25rem;
+  height: 100%;
+  border: 0.0625rem solid var(--color-black);
+  border-left: none;
+  cursor: pointer;
+  background-color: var(--color-white);
+}
+
+.listElement {
+  padding: 0.9375rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.albumTitle {
+  font-size: 1rem;
+}
+
+.albumArtists {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .search {
+      width: 24rem;
+      font-size: 0.9375rem;
   }
   
   .wrapper {
-    display: flex;
-    align-items: stretch;
-    height: 48px;
+      height: 2.5rem;
   }
   
   .searchButton {
-    border-radius: 0px 8px 8px 0px;
-    padding: 14px 20px;
-    height: 100%;
-    border: 1px solid var(--color-black);
-    border-left: none;
-    cursor: pointer;
-    height: 100%;
-    background-color: var(--color-white);
+      padding: 0.75rem 1rem;
   }
   
   .listElement {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
+      padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search {
+      width: 8rem;
+      height: 2.2rem;
+      font-size: 0.86rem;
+      padding: 0.2rem 0.4rem;
+    }
+  
+    .wrapper {
+      height: 2.2rem;
+    }
+
+  .searchButton {
+      padding: 0.625rem 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
   
-  .albumTitle {
-    font-size: 16px;
+  .listElement {
+      padding: 0.625rem;
   }
-  
-  .albumArtists {
-    font-size: 12px;
-  }
-  
+}

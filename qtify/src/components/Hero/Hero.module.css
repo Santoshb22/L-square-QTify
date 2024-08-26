@@ -1,17 +1,45 @@
 .hero {
-    background-color: var(--color-black);
-    height: 270px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 30px;
-    color: var(--color-white);
+  background-color: var(--color-black);
+  height: 16.875rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1.875rem;
+  color: var(--color-white);
+}
+
+.heroText {
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 3rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+      height: 14rem;
+      gap: 1.5rem;
   }
   
   .heroText {
-    font-family: Poppins;
-    font-weight: 600;
-    line-height: 48px;
-    text-align: center;
+      line-height: 2.5rem;
   }
+}
+
+@media (max-width: 480px) {
+  .hero {
+      height: 8rem;
+      gap: 1.25rem;
+      padding: 0px 3px;
+  }
+
+  .heroLogo {
+    width: 120px;
+  }
+  
+  .heroText {
+      line-height: 2rem;
+      font-size: 0.45rem;
+  }
+}
