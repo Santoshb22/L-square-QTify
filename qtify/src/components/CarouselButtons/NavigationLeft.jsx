@@ -3,7 +3,7 @@ import navLeft from "../../assets/navigation-prev.svg"
 const NavigationLeft = () => {
   return (
     
-        <img src={navLeft} alt="Navigation Button" />
+    <img src={navLeft} alt="Navigation Button" />
     
   )
 }

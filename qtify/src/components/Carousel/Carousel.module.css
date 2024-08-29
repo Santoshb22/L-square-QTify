@@ -29,7 +29,7 @@
   padding-left: 0.625rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 425px) {
   .customPrev,
   .customNext {
       padding: 0.25rem;
@@ -39,8 +39,16 @@
       left: -0.25rem;
   }
 
+  .customPrev img {
+    width: 30px;
+  }
+
   .customNext {
       right: -0.25rem;
+  }
+
+  .customNext img {
+    width: 30px;
   }
 
   .mySwiper {
