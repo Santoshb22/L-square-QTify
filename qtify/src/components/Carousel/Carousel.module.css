@@ -1,32 +1,49 @@
 .carousel {
-    position: relative;
-    overflow: hidden;
-  }
-  
+  position: relative;
+  overflow: hidden;
+}
+
+.customPrev,
+.customNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  overflow: visible;
+  padding: 0.5rem;
+}
+
+.customPrev {
+  left: -0.5rem;
+}
+
+.customNext {
+  right: -0.5rem;
+}
+
+.mySwiper {
+  position: relative;
+  padding-left: 0.625rem;
+}
+
+@media (max-width: 480px) {
   .customPrev,
   .customNext {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    overflow: visible;
-    padding: 8px;
-  }
-  
-  .customPrev {
-    left: -8px;
-  }
-  
-  .customNext {
-    right: -8px;
-  }
-  
-  .mySwiper {
-    position: relative;
-    padding-left: 10px;
+      padding: 0.25rem;
   }
 
-  
+  .customPrev {
+      left: -0.25rem;
+  }
+
+  .customNext {
+      right: -0.25rem;
+  }
+
+  .mySwiper {
+      padding-left: 0.5rem;
+  }
+}

@@ -2,65 +2,78 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0px;
+    margin: 1.25rem 0;
 }
 
 .cardsGrid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);     gap: 32px;
-    gap: 40px;
-    padding: 0px 4px;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2rem;
+    padding: 0 0.25rem;
 }
 
-.cardSection  {
-    max-width: 1376px;
-    margin: 0px auto;
+.cardSection {
+    max-width: 86.5rem;
+    margin: 0 auto;
 }
 
 .title {
     color: var(--color-white);
     font-family: "Poppins";
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 1.875rem;
     text-align: left;
 }
 
 .carouselToggleButton {
-    font-family: Poppins;
-    font-size: 20px;
+    font-family: "Poppins";
+    font-size: 1.25rem;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 1.875rem;
     background-color: var(--color-black);
     border: none;
     color: #34C94B;
     cursor: pointer;
 }
 
-
 .topCardsSection {
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
+}
+
+.tabsRoot {
+    color: var(--color-white);
+    margin-bottom: 1.75rem;
+}
+
+.tab {
+    color: var(--color-white) !important;
+    font-size: 1rem !important;
+    line-height: 1.5rem !important;
+    font-weight: 600 !important;
+    font-family: 'Poppins' !important;
+}
+
+.tabIndicator {
+    background-color: var(--color-primary) !important;
+    border-radius: 0.125rem !important;
+}
+
+.tabSelected {
+    color: var(--color-white);
+}
+
+@media (max-width: 480px) {
+    .cardsGrid {
+        grid-template-columns: repeat(3, 1fr);
+        overflow: hidden;
+    }
 }
 
 
-.tabsRoot {
-    color: var(--color-white); /* Default text color */
-    margin-bottom: 28px !important;
-  }
-  
-  .tab {
-    color:var(--color-white) !important;
-    font-size: 16px !important;
-    line-height: 24px !important;
-    font-weight:600 !important; 
-    font-family: 'Poppins' !important;
- }
-  
-  .tabIndicator {
-    background-color: var(--color-primary) !important; /* Green underline */
-    border-radius: 2px !important;
-  }
-  
-  .tabSelected {
-    color:var(--color-white); /* Ensure selected tab text color */
-  }
+@media (max-width: 768px) {
+    .cardsGrid {
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+    }
+}

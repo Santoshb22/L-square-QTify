@@ -1,0 +1,93 @@
+.albumDetail {
+    padding: 20px 74px;
+    height: 100vh;
+}
+
+.backButton {
+ width: 40px;   
+ height: 40px;
+ margin-bottom: 20px;
+}
+
+.mainSong {
+    width: 1009px;
+    height: 329px;
+    display: flex;
+    color: var(--color-white);
+    align-items: center;
+    gap: 16px;
+}
+
+.musicImage {
+    width: 288px;
+    height: 100%;
+    border-radius: 20px;
+
+}
+
+.musicDetail h2{
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+}
+
+.musicDetail p {
+    font-family: Poppins;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 8px 0px;
+}
+
+.musicDetailFooter {
+    display: flex;
+    justify-content: start;
+    align-items:center;
+    gap: 8px;
+}
+
+.shuffleButton {
+    padding: 10px 17px 10px 17px;
+    border-radius: 12px;
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21.6px;
+    letter-spacing: 0.25px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+    outline: none;
+}
+
+.addToLibrary {
+    padding: 10px 17px 10px 17px;
+    border-radius: 12px;
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21.6px;
+    letter-spacing: 0.25px;
+    outline: none;
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-primary);
+}
+
+.addToLibrary > img {
+    font-weight: 300;
+    width: 26px;
+}
+
+
+.shuffleButton > img {
+    font-weight: 300;
+    width: 26px;
+}

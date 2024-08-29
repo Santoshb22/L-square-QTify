@@ -36,6 +36,20 @@ const Carousel = ({ albumData }) => {
         spaceBetween={30}
         modules={[Navigation]}
         className={styles.mySwiper}
+        breakpoints={{
+          0: {
+            slidesPerView: 3,
+          },
+          480: {
+            slidesPerView: 4,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+          1024: {
+            slidesPerView: 7,
+          },
+        }}
       >
         {
           albumData.map(item => (

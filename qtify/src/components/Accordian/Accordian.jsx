@@ -35,7 +35,7 @@ const Accordian = () => {
                     <Accordion className={styles.accordian} key={i} defaultExpanded={false}>
                         <AccordionSummary
                             className={styles.accordianSummary}
-                            expandIcon={<img src={expandAccordian} alt="expand icon" />} // Use an img element
+                            expandIcon={<img className={styles.accordianToggleIcon} src={expandAccordian} alt="expand icon" />} // Use an img element
                             aria-controls={`panel${i + 1}-content`}
                             id={`panel${i + 1}-header`}
                         >

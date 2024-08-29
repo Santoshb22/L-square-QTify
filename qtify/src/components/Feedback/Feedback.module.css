@@ -60,6 +60,7 @@
     font-weight: 600;
     line-height: 27px;
     font-family: "Poppins";
+    cursor: pointer;
 }
 
 .submitButtonContainer {
