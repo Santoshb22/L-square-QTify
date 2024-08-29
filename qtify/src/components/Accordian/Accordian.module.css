@@ -79,7 +79,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (min-width: 426px) and (max-width: 768px) {
     .accordionDetail {
         padding-top: 4.5rem !important;
     }
